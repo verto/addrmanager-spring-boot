@@ -1,4 +1,4 @@
-package me.verto.addressmanager;
+package me.verto.addrmanager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

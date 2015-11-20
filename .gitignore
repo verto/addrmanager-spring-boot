@@ -1,6 +1,6 @@
 .mvn
-bin/
-target/		
+bin
+target/
 .classpath
 .project
 *.swp
