@@ -1,0 +1,6 @@
+.mvn
+bin/
+target/		
+.classpath
+.project
+*.swp
