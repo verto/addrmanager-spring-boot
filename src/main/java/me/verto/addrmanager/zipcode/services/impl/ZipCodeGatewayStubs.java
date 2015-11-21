@@ -22,7 +22,8 @@ public class ZipCodeGatewayStubs implements ZipCodeGateway {
 
   static {
     zipCodes.put("02011200", "{ \"neighborhood\": \"Santana\", \"street\": \"Rua Voluntários da Pátria\", \"zipCode\": \"02011200\", \"state\": \"SP\", \"city\": \"São Paulo\" }");
-    zipCodes.put("01310909", "{ \"neighborhood\": \"Bela Vista\", \"street\": \"Avenida Paulista 688 - Edifício Santa Filippa\", \"zipCode\": \"01310909\", \"state\": \"SP\", \"city\": \"São Paulo\" }");
+    zipCodes.put("01310909", "{ \"neighborhood\": \"Bela Vista\", \"street\": \"Avenida Paulista\", \"zipCode\": \"01310909\", \"state\": \"SP\", \"city\": \"São Paulo\" }");
+    zipCodes.put("05422010", "{ \"neighborhood\": \"Pinheiros\", \"street\": \"Rua dos Pinheiros\", \"zipCode\": \"05422010\", \"state\": \"SP\", \"city\": \"São Paulo\" }");
   }
 
   @Override

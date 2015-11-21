@@ -11,6 +11,7 @@ import me.verto.addrmanager.zipcode.ZipCodeNotFoundException;
 
 import java.io.Serializable;
 
+import javax.persistence.EntityNotFoundException;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
@@ -61,6 +62,12 @@ public class ControllerExceptionHandler {
     response.setStatus(HttpStatus.UNPROCESSABLE_ENTITY.value());
     writeErrorResponse(e, response);
 
+  }
+
+  @ResponseStatus(value=HttpStatus.NOT_FOUND)
+  @ExceptionHandler(EntityNotFoundException.class)
+  public void entityNotFound(EntityNotFoundException e) {
+    log.warn("EntityNotFoundException: " + e.getMessage());
   }
 
   private void writeErrorResponse(Exception e, HttpServletResponse response) {

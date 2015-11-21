@@ -2,6 +2,9 @@ package me.verto.addrmanager.zipcode.models;
 
 import java.io.Serializable;
 import org.springframework.util.StringUtils;
+
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import me.verto.addrmanager.zipcode.ZipCodeInvalidException;
 
 public class ZipCode implements Serializable {
@@ -17,6 +20,7 @@ public class ZipCode implements Serializable {
     this.value = value;
   }
 
+  @JsonValue
   public String value() {
     return value;
   }
