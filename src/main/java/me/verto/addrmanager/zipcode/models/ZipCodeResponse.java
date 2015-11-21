@@ -10,8 +10,8 @@ public class ZipCodeResponse implements Serializable {
 
   public ZipCodeResponse() {  }
 
-  public ZipCodeResponse(String zipCode) {
-    this.zipCode = zipCode;
+  public ZipCodeResponse(ZipCode zipCode) {
+    this.zipCode = zipCode.value();
   }
 
   public String getZipCode() {

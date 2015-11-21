@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import me.verto.addrmanager.zipcode.ZipCodeInvalidException;
+import me.verto.addrmanager.zipcode.models.ZipCode;
 import me.verto.addrmanager.zipcode.models.ZipCodeResponse;
 
 @RestController
@@ -12,9 +12,8 @@ import me.verto.addrmanager.zipcode.models.ZipCodeResponse;
 public class ZipCodeController {
 
   @RequestMapping("/search")
-  ZipCodeResponse search(@RequestParam(value="zipCode") String zipCode) {
-    if ("0113".equals(zipCode)) throw new ZipCodeInvalidException("zipcode is invalid");
-
+  ZipCodeResponse search(@RequestParam(value="zipCode") String value) {
+    ZipCode zipCode = new ZipCode(value);
     return new ZipCodeResponse(zipCode);
   }
 }
