@@ -34,9 +34,9 @@ public class ZipCodeIntegrationTest {
 
   @Test
   public void shouldReturnAddressContentIfExistsForValidCep() throws Exception {
-    mvc.perform(get("/zipcodes/search?zipCode=011310909"))
+    mvc.perform(get("/zipcodes/search?zipCode=01310909"))
       .andExpect(status().isOk())
-      .andExpect(jsonPath("$.zipCode", is("011310909")));
+      .andExpect(jsonPath("$.zipCode", is("01310909")));
   }
 
   @Test
@@ -47,6 +47,16 @@ public class ZipCodeIntegrationTest {
   }
 
   @Test
-  public void shouldReturnNotFoundMessageIfCepIsValidButWihoutAddress() {
+  public void shouldReturnNotFoundMessageIfCepIsValidButWihoutAddress() throws Exception {
+    mvc.perform(get("/zipcodes/search?zipCode=01312920"))
+      .andExpect(status().isUnprocessableEntity())
+      .andExpect(jsonPath("$.errorMessage", is("address not found")));
+  }
+
+  @Test
+  public void shouldReturnAddressContentToNextValidCep() throws Exception {
+    mvc.perform(get("/zipcodes/search?zipCode=02011201"))
+      .andExpect(status().isOk())
+      .andExpect(jsonPath("$.zipCode", is("02011200")));
   }
 }

@@ -6,7 +6,7 @@ import me.verto.addrmanager.zipcode.ZipCodeInvalidException;
 
 public class ZipCode implements Serializable {
 
-  private static final String VALID_VALUE = "\\d{9}";
+  private static final String VALID_VALUE = "\\d{8}";
 
   private static final long serialVersionUID = 635841783928141496L;
 
@@ -19,6 +19,15 @@ public class ZipCode implements Serializable {
 
   public String value() {
     return value;
+  }
+
+  public ZipCode next() {
+    String nextValue = this.value.replaceAll("[1-9](?!.*[1-9])", "0");
+    return new ZipCode(nextValue);
+  }
+
+  public boolean hasNext() {
+    return !"00000000".equals(this.value);
   }
 
   @Override
