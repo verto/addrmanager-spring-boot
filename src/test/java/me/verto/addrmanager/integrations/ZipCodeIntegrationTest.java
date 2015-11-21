@@ -20,7 +20,7 @@ import static org.hamcrest.Matchers.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = AddrManagerApplication.class)
 @WebAppConfiguration
-public class ZipCodeTests {
+public class ZipCodeIntegrationTest {
 
   @Autowired
   private WebApplicationContext webAppContext;
