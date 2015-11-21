@@ -1,0 +1,30 @@
+<div class="ui message" ng-if="addresses.length == 0"><p>You don't have addresses</p></div>
+<a href="/app/addresses/new" class="ui active teal button"><i class="book icon"></i> New Address</a>
+<table class="ui table addrs" ng-if="addresses.length > 0">
+  <thead>
+    <tr>
+      <th class="wide">Street</th>
+      <th class="one wide">Number</th>
+      <th class="three wide">Zipcode</th>
+      <th class="four wide">City/State</th>
+      <th class="three wide"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="address in addresses">
+      <td>{{address.street}}</td>
+      <td>{{address.number}}</td>
+      <td>{{address.zipCode}}</td>
+      <td>{{address.city}}/{{address.state}}</td>
+      <td>
+        <a ng-href="/app/addresses/{{address.id}}" class="ui icon"><i class="edit large icon"></i></a>
+        <a href="#" ng-click="destroy(address)" class="ui icon"><i class="trash large icon"></i></a>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th colspan="5">{{addresses.length}} addresses</th>
+    </tr>
+  </tfoot>
+</table>

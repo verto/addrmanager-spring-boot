@@ -1,0 +1,24 @@
+body {
+  background-color: #e1e1e1;
+}
+body > .grid {
+  height: 100%;
+}
+
+h1.logo { 
+  background: url(/assets/images/logo.png) no-repeat;
+  text-indent: -10000px;
+  height: 70px;
+} 
+
+.addrs {
+  border-top: .2em solid #48aab9 !important;
+}
+
+#ui-content {
+  margin-top: 30px;
+}
+
+.top {
+  padding-top: 50px;
+}

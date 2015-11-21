@@ -1,0 +1,58 @@
+<form class="ui form addressForm">
+  <div class="ui negative message" ng-if="errors.length > 0">
+    <div class="header">
+        Ops! Something is wrong...
+    </div>
+    <ul class="list">
+        <li ng-repeat="error in errors">{{error.message}}</li>
+    </ul>
+  </div>
+  <div class="wide field">
+    <p>Currently, only supported to <i class="br flag large"></i>Brazilian address</p>
+  </div>
+  <div class="two fields" ng-controller="ZipCodeController">
+    <div class="five wide field">
+      <div class="ui icon input">
+        <input type="text" name="address.zipCode" ng-blur="search(address.zipCode)" placeholder="Zipcode" ng-model="address.zipCode">
+        <i class="inverted circular search link icon" ng-click="search(address.zipCode)"></i>
+      </div>
+    </div>
+    <div class="field">
+      <div ng-if="error" class="ui {{error.type}} small message"><p>{{error.message}}</p></div>
+    </div>
+  </div>
+  <div class="field">
+    <div class="two fields">
+      <div class="twelve wide field">
+        <input type="text" name="address.street" placeholder="Street" ng-model="address.street">
+      </div>
+      <div class="four wide field">
+        <input type="text" name="address.number" placeholder="number" ng-model="address.number">
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <div class="two fields">
+      <div class="field">
+        <input type="text" name="address.neighborhood" placeholder="neighborhood" ng-model="address.neighborhood">
+      </div>
+      <div class="field">
+        <input type="text" name="address.additionalInfo" placeholder="additional" ng-model="address.additionalInfo">
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <div class="two fields">
+      <div class="field">
+        <input type="text" name="address.city" placeholder="City" ng-model="address.city">
+      </div>
+      <div class="field">
+        <input type="text" name="address.state" placeholder="State" ng-model="address.state">
+      </div>
+    </div>
+  </div>
+  <div class="fields">
+    <button class="ui button" type="submit" ng-click="save()">Save</button>
+    <a href="/app" class="ui button">Cancel</a>
+  </div>
+</form>

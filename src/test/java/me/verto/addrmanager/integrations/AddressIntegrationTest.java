@@ -62,7 +62,7 @@ public class AddressIntegrationTest {
 
   @Test
   public void shouldReturnAllAddress() throws Exception {
-    mvc.perform(get("/addresses"))
+    mvc.perform(get("/api/addresses"))
       .andExpect(status().isOk())
       .andExpect(jsonPath("$", hasSize(2)));
   }
@@ -70,7 +70,7 @@ public class AddressIntegrationTest {
   @Test
   public void shouldReturnAddressById() throws Exception {
     Address address = addresses.get(0);
-    mvc.perform(get("/addresses/" + address.getId()))
+    mvc.perform(get("/api/addresses/" + address.getId()))
       .andExpect(status().isOk())
       .andExpect(jsonPath("$.zipCode", is(address.getZipCode().toString())));
   }
@@ -79,7 +79,7 @@ public class AddressIntegrationTest {
   public void shouldCreateAddress() throws Exception {
     Address address = buildAddress("05422010", "Pinheiros", "Rua dos Pinheiros", "10", "São Paulo", "SP");
 
-    mvc.perform(post("/addresses")
+    mvc.perform(post("/api/addresses")
         .contentType(MediaType.APPLICATION_JSON_UTF8)
         .content(json(address)))
       .andExpect(status().isCreated());
@@ -88,7 +88,7 @@ public class AddressIntegrationTest {
   @Test
   public void shouldDeleteAddress() throws Exception {
     Address address = addresses.get(0);
-    mvc.perform(delete("/addresses/" + address.getId()))
+    mvc.perform(delete("/api/addresses/" + address.getId()))
       .andExpect(status().isNoContent());
   }
 
@@ -97,7 +97,7 @@ public class AddressIntegrationTest {
     Address addressEditing = addresses.get(0);
     Address address = buildAddress("05422010", "Pinheiros", "Rua dos Pinheiros", "10", "São Paulo", "SP");
 
-    mvc.perform(put("/addresses/" + addressEditing.getId())
+    mvc.perform(put("/api/addresses/" + addressEditing.getId())
         .contentType(MediaType.APPLICATION_JSON_UTF8)
         .content(json(address)))
       .andExpect(status().isNoContent());

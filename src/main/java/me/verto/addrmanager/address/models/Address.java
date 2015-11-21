@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.BeanUtils;
 
 import me.verto.addrmanager.zipcode.models.ZipCode;
@@ -24,12 +25,12 @@ public class Address implements Serializable {
   @NotNull @Convert(converter = ZipCodeConverter.class)
   private ZipCode zipCode;
 
-  @NotNull private String street;
-  @NotNull private String number;
+  @NotBlank private String street;
+  @NotBlank private String number;
   private String neighborhood;
   private String additionalInfo;
-  @NotNull private String city;
-  @NotNull private String state;
+  @NotBlank private String city;
+  @NotBlank private String state;
 
   public Long getId() {
     return id;

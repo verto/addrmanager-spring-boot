@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html ng-app="addrManager">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title>AddrManager</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/application.css"/>
+    <base href="/">
+  </head>
+  <body>
+    <div class="ui middle aligned center aligned grid">
+      <div class="ui container">
+        <h1 class="header top"></h1>
+        <a href="/app"><h1 class="ui header logo">AddrManager</h1></a>
+        <div id="ui-content" ng-view></div>
+      </div>
+    </div>
+    <!-- should use a package manager and minify to only one file.js -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular-route.js"></script>
+
+    <script src="/assets/js/application.js"></script>
+    <script src="/assets/js/address.js"></script>
+  </body>
+</html >

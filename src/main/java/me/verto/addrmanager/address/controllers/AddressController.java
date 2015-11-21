@@ -17,7 +17,7 @@ import me.verto.addrmanager.address.models.Address;
 import me.verto.addrmanager.address.repositories.AddressRepository;
 
 @RestController
-@RequestMapping("/addresses")
+@RequestMapping("/api/addresses")
 public class AddressController {
 
   private AddressRepository addressRepository;

@@ -34,28 +34,28 @@ public class ZipCodeIntegrationTest {
 
   @Test
   public void shouldReturnAddressContentIfExistsForValidCep() throws Exception {
-    mvc.perform(get("/zipcodes/search?zipCode=01310909"))
+    mvc.perform(get("/api/zipcodes/search?zipCode=01310909"))
       .andExpect(status().isOk())
       .andExpect(jsonPath("$.zipCode", is("01310909")));
   }
 
   @Test
   public void shouldReturnInvalidErrorIfCepIsInvalid() throws Exception {
-    mvc.perform(get("/zipcodes/search?zipCode=0113"))
-      .andExpect(status().isUnprocessableEntity())
-      .andExpect(jsonPath("$.errorMessage", is("zipcode is invalid")));
+    mvc.perform(get("/api/zipcodes/search?zipCode=0113"))
+      .andExpect(status().isBadRequest())
+      .andExpect(jsonPath("$.errors[0].message", is("zipcode is invalid")));
   }
 
   @Test
   public void shouldReturnNotFoundMessageIfCepIsValidButWihoutAddress() throws Exception {
-    mvc.perform(get("/zipcodes/search?zipCode=01312920"))
+    mvc.perform(get("/api/zipcodes/search?zipCode=01312920"))
       .andExpect(status().isUnprocessableEntity())
-      .andExpect(jsonPath("$.errorMessage", is("address not found")));
+      .andExpect(jsonPath("$.errors[0].message", is("address not found")));
   }
 
   @Test
   public void shouldReturnAddressContentToNextValidCep() throws Exception {
-    mvc.perform(get("/zipcodes/search?zipCode=02011201"))
+    mvc.perform(get("/api/zipcodes/search?zipCode=02011201"))
       .andExpect(status().isOk())
       .andExpect(jsonPath("$.zipCode", is("02011200")));
   }

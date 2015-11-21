@@ -10,7 +10,7 @@ import me.verto.addrmanager.zipcode.models.ZipCodeResponse;
 import me.verto.addrmanager.zipcode.services.ZipCodeService;
 
 @RestController
-@RequestMapping("/zipcodes")
+@RequestMapping("/api/zipcodes")
 public class ZipCodeController {
 
   private ZipCodeService zipCodeService;
