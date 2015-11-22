@@ -9,6 +9,7 @@ Demo: [http://addrmanager-spring-boot.herokuapp.com](http://addrmanager-spring-b
 - `Maven`
 - `Spring boot`
 - `Spring Data Jpa`
+- `HSQLDB`
 - `Spring MVC`
 - `AngularJs`
 - `Semantic-UI`
