@@ -1,6 +1,7 @@
 ![AddrManager](http://img.verto.me/addrmanager-logo.png)
 
 A sample project using spring boot with angularjs and semantic-ui
+Demo: ![http://addrmanager-spring-boot.herokuapp.com](http://addrmanager-spring-boot.herokuapp.com)
 
 ## Libraries
 
